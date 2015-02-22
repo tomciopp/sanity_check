@@ -1,13 +1,13 @@
 # SanityCheck
 
-TODO: Write a gem description
+Sanity Check runs your test suite, rails_best_practices, and brakeman with one rake task.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sanity_check'
+gem 'sanity_check', group: :development
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ rake sanity:check
 
 ## Contributing
 
