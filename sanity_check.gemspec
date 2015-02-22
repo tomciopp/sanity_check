@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Thomas Cioppettini"]
   spec.email         = ["thomas.cioppettini@gmail.com"]
   spec.summary       = %q{Rake Tasks that review your code before deploy.}
-  spec.description   = %q{Run tests, check best practices, and run security checks before.}
+  spec.description   = %q{Run tests, check best practices, and run security checks before CI or deploy.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
