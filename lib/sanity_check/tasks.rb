@@ -13,6 +13,7 @@ namespace :sanity do
   task :check do
     Rake::Task["spec"].invoke if defined?(RSpec)
     Rake::Task["test"].invoke if defined?(Test::Unit)
+    Rake::Task["traceroute"].invoke
     Rake::Task["sanity:brakeman"].invoke
     Rake::Task["sanity:best_practices"].invoke
   end
