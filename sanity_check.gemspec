@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["thomas.cioppettini@gmail.com"]
   spec.summary       = %q{Rake Tasks that review your code before deploy.}
   spec.description   = %q{Run tests, check best practices, and run security checks before CI or deploy.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tomciopp/sanity_check"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
