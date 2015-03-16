@@ -14,13 +14,25 @@ namespace :sanity do
     sh "rubocop -l"
   end
 
-  desc "Run full sanity check"
-  task :check do
+  desc "Run automated test suite"
+  task :tests do
     Rake::Task["spec"].invoke if defined?(RSpec)
     Rake::Task["test"].invoke if defined?(Test::Unit)
-    Rake::Task["traceroute"].invoke
-    Rake::Task["sanity:rubocop"].invoke
-    Rake::Task["sanity:brakeman"].invoke
-    Rake::Task["sanity:best_practices"].invoke
+  end
+
+  desc "Run full sanity check"
+  task :check do
+    failing_tasks = []
+    %W[sanity:tests traceroute sanity:rubocop sanity:brakeman sanity:best_practices].each do |task|
+      sh("rake #{task}") do |exit_status|
+        failing_tasks << task unless exit_status
+      end
+    end
+
+    if failing_tasks.empty?
+      puts "Your application's sanity check has passed!"
+    else
+      fail Exception, "An error occurred in #{failing_tasks.join(', ')}."
+    end
   end
 end
